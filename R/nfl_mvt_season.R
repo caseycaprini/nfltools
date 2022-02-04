@@ -5,7 +5,7 @@
 #' @return a long data frame with time average results for each game for every team
 #' @export
 nfl_mvt_season <- function(year = 2021){
-  pbp_df <- load_pbp(2021) %>%
+  pbp_df <- load_pbp(year) %>%
     filter(season_type == "REG") %>%
     select(game_seconds_remaining, posteam,
            score_differential_post, week,
