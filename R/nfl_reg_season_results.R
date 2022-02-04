@@ -101,5 +101,10 @@ nfl_reg_season_results <- function(year = 2020){
       result_df = rbind(result_df, temp_df)
     }
   }
+
+  result_df <- result_df %>%
+    mutate(season = year) %>%
+    select(season, everything())
+
   return(result_df %>% arrange(team))
 }
