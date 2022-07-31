@@ -21,12 +21,12 @@ nfl_mvt_season <- function(year = 2021){
 
   results_df <- data.frame(
       week = 1:max_week,
-      team = NA,
-      opponent = rep(NA,
+      team = NA_character_,
+      opponent = rep(NA_character_,
                      max_week*length(team_vec)),
-      home_away = rep(NA,
+      home_away = rep(NA_character_,
                       max_week*length(team_vec)),
-      time_avg_lead = rep(NA,
+      time_avg_lead = rep(NA_real_,
                           max_week*length(team_vec))
     )
 

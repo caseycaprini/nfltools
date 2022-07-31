@@ -12,7 +12,7 @@ nfl_mvt_sos <- function(df){
 
   results_df <- data.frame(
     team = nfl_teams,
-    sos = NA
+    sos = NA_real_
   )
 
   for(i in 1:length(nfl_teams)){

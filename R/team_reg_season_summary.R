@@ -10,8 +10,8 @@ team_reg_season_summary <- function(df, team){
     filter( away_team == team | home_team == team ) %>%
     filter( is.na(away_score) == FALSE )
 
-  pf_vector <- rep( NA , nrow( sched_df ) )
-  pa_vector <- rep( NA , nrow( sched_df ) )
+  pf_vector <- rep( NA_integer_ , nrow( sched_df ) )
+  pa_vector <- rep( NA_integer_ , nrow( sched_df ) )
   win_vector <- rep( 0 , nrow( sched_df ) )
   loss_vector <- rep( 0 , nrow( sched_df ) )
   tie_vector <- rep( 0 , nrow( sched_df ) )

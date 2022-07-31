@@ -14,13 +14,13 @@ nfl_reg_season_summary <- function(year = 2020){
     pull(away_team)
 
   results_df = data.frame(team = nfl_teams,
-                          wins = NA,
-                          losses = NA,
-                          ties = NA,
-                          season_point_for = NA,
-                          season_point_against = NA,
-                          season_point_diff = NA,
-                          pythag_wins = NA)
+                          wins = NA_integer_,
+                          losses = NA_integer_,
+                          ties = NA_integer_,
+                          season_point_for = NA_integer_,
+                          season_point_against = NA_integer_,
+                          season_point_diff = NA_integer_,
+                          pythag_wins = NA_real_)
 
   for(i in 1:length(nfl_teams)){
     results_df <- rows_update(

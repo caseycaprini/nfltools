@@ -14,8 +14,8 @@ mvt_game <- function(game_pbp, team)
 
   # One more interval than scoring plays
   m <- nrow( game_pbp ) + 1
-  time_int <- rep( NA , m )
-  point_diff <- rep( NA , m )
+  time_int <- rep( NA_integer_ , m )
+  point_diff <- rep( NA_integer_ , m )
 
   for(i in 1:m){
     time_int[i] <- ifelse(i == 1,
