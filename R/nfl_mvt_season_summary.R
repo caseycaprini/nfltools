@@ -8,7 +8,9 @@ nfl_mvt_season_summary <- function(df){
   df %>%
     group_by(team) %>%
     summarize(time_avg_lead = mean(time_avg_lead,
-                                   na.rm = TRUE)) %>%
+                                   na.rm = TRUE),
+              time_avg_sd = mean(time_avg_sd,
+                                 na.rm = TRUE)) %>%
     ungroup() %>%
     left_join(df %>% nfl_mvt_sos(),
               by = c("team" = "team")) %>%

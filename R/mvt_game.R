@@ -40,13 +40,19 @@ mvt_game <- function(game_pbp, team)
   home_away = ifelse(game_pbp$home_team[1] == team,
                      "home",
                      "away")
+  team_result = ifelse(game_pbp$home_team[1] == team,
+                       game_pbp$result[1],
+                       -1 * game_pbp$result[1])
   time_avg_lead = sum((time_int * point_diff))/3600
+  time_avg_sd = sqrt(sum((((point_diff - time_avg_lead)^2) * time_int))/3600)
 
   df = data.frame(week = week,
                   team = team,
                   opponent = opponent,
                   home_away = home_away,
-                  time_avg_lead = time_avg_lead
+                  team_result = team_result,
+                  time_avg_lead = time_avg_lead,
+                  time_avg_sd = time_avg_sd
                   )
 
   return(df)
