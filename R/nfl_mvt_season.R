@@ -11,7 +11,9 @@ nfl_mvt_season <- function(year = 2021){
            score_differential_post, week,
            game_half, sp,
            home_team, away_team,
-           result)
+           result,
+           home_score, away_score,
+           spread_line, total_line)
 
   team_vec <- pbp_df %>%
     distinct(home_team) %>%
@@ -31,8 +33,14 @@ nfl_mvt_season <- function(year = 2021){
                         max_week*length(team_vec)),
       time_avg_lead = rep(NA_real_,
                           max_week*length(team_vec)),
-      time_avg_sd = rep(NA_real_,
-                        max_week*length(team_vec))
+      team_spread = rep(NA_real_,
+                        max_week*length(team_vec)),
+      total_line = rep(NA_real_,
+                       max_week*length(team_vec)),
+      team_score = rep(NA_real_,
+                       max_week*length(team_vec)),
+      opponent_score = rep(NA_real_,
+                           max_week*length(team_vec))
     )
 
   for(j in 1:length(team_vec)){

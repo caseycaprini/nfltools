@@ -40,20 +40,33 @@ mvt_game <- function(game_pbp, team)
   home_away = ifelse(game_pbp$home_team[1] == team,
                      "home",
                      "away")
+  time_avg_lead = sum((time_int * point_diff))/3600
   team_result = ifelse(game_pbp$home_team[1] == team,
                        game_pbp$result[1],
                        -1 * game_pbp$result[1])
-  time_avg_lead = sum((time_int * point_diff))/3600
-  time_avg_sd = sqrt(sum((((point_diff - time_avg_lead)^2) * time_int))/3600)
+  team_spread = ifelse(game_pbp$home_team[1] == team,
+                       -1 * game_pbp$spread_line[1],
+                       game_pbp$spread_line[1])
+  total_line = game_pbp$total_line[1]
+  team_score = ifelse(game_pbp$home_team[1] == team,
+                      game_pbp$home_score[1],
+                      game_pbp$away_score[1])
+  opponent_score = ifelse(game_pbp$home_team[1] == team,
+                          game_pbp$away_score[1],
+                          game_pbp$home_score[1])
 
-  df = data.frame(week = week,
-                  team = team,
-                  opponent = opponent,
-                  home_away = home_away,
-                  team_result = team_result,
-                  time_avg_lead = time_avg_lead,
-                  time_avg_sd = time_avg_sd
-                  )
+  df <- data.frame(
+    week = week,
+    team = team,
+    opponent = opponent,
+    home_away = home_away,
+    time_avg_lead = time_avg_lead,
+    team_result = team_result,
+    team_spread = team_spread,
+    total_line = total_line,
+    team_score = team_score,
+    opponent_score = opponent_score
+  )
 
   return(df)
 }

@@ -15,4 +15,6 @@ Imports:
     ggplot2,
     magrittr,
     nflfastR,
+    purrr,
+    rvest,
     stats

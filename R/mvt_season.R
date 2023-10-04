@@ -24,9 +24,12 @@ mvt_season <- function(team_pbp_df, team)
     team = team,
     opponent = rep(NA_character_, max_week),
     home_away = rep(NA_character_, max_week),
-    team_result = rep(NA_real_, max_week),
     time_avg_lead = rep(NA_real_, max_week),
-    time_avg_sd = rep(NA_real_, max_week)
+    team_result = rep(NA_real_, max_week),
+    team_spread = rep(NA_real_, max_week),
+    total_line = rep(NA_real_, max_week),
+    team_score = rep(NA_real_, max_week),
+    opponent_score = rep(NA_real_, max_week)
   )
 
   for(i in 1:max_week){
