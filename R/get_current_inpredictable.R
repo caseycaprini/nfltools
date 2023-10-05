@@ -1,3 +1,7 @@
+#' Returns current inpredictable nfl rankings (scraped)
+#'
+#' @return a dataframe containing current inpredictable nfl vegas power rankings
+#' @export
 get_current_inpredictable <- function(){
 
 scraped_list <-
